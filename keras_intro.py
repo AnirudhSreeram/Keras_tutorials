@@ -42,8 +42,8 @@ train_labels, train_samples = shuffle(train_labels, train_samples)
 scalar = MinMaxScaler(feature_range=(0, 1))
 scaled_train_samples = scalar.fit_transform(train_samples.reshape(-1, 1))
 
-# for i in scaled_train_samples:
-#    print(i)
+for i in scaled_train_samples:
+    print(i)
 
 model = Sequential([
     Dense(units=16, input_shape=(1,), activation='relu'),
@@ -91,8 +91,8 @@ scalar = MinMaxScaler(feature_range=(0, 1))
 scaled_test_samples = scalar.fit_transform(test_samples.reshape(-1, 1))
 
 predictions = model.predict(x=scaled_test_samples, batch_size=10, verbose=0)
-#for i in predictions:
-#    print(i)
+for i in predictions:
+    print(i)
 rounded_predictions = np.argmax(predictions, axis=-1)
 for i in rounded_predictions:
     print(i)
